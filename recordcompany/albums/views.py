@@ -1,15 +1,10 @@
-from rest_framework import generics
+from rest_framework import generics, viewsets
 
 from .models import Album, Song
 from .serializers import AlbumSerializer, SongSerializer
 
 
-class AlbumList(generics.ListCreateAPIView):
-    queryset = Album.objects.all()
-    serializer_class = AlbumSerializer
-
-
-class AlbumDetail(generics.RetrieveDestroyAPIView):
+class AlbumViewSet(viewsets.ModelViewSet):
     queryset = Album.objects.all()
     serializer_class = AlbumSerializer
 
