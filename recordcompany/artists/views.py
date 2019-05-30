@@ -1,5 +1,5 @@
 from django.contrib.auth import authenticate
-from rest_framework import generics, status
+from rest_framework import generics, status, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -7,12 +7,7 @@ from .models import Artist
 from .serializers import ArtistSerializer, UserSerializer
 
 
-class ArtistList(generics.ListCreateAPIView):
-    queryset = Artist.objects.all()
-    serializer_class = ArtistSerializer
-
-
-class ArtistDetail(generics.RetrieveDestroyAPIView):
+class ArtistViewSet(viewsets.ModelViewSet):
     queryset = Artist.objects.all()
     serializer_class = ArtistSerializer
 
