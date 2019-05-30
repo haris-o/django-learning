@@ -1,8 +1,8 @@
-from django.urls import path
+from rest_framework.routers import DefaultRouter
 
-from .views import LabelList, LabelDetail
+from .views import LabelViewSet
 
-urlpatterns = [
-    path('labels/', LabelList.as_view(), name='labels_list'),
-    path('labels/<int:pk>/', LabelDetail.as_view(), name='labels_detail'),
-]
+router = DefaultRouter()
+router.register('labels', LabelViewSet, base_name='labels')
+
+urlpatterns = router.urls
