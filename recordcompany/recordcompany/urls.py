@@ -18,7 +18,7 @@ from django.urls import path, re_path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('labels/', include('labels.urls')),
-    path('artists/', include('artists.urls')),
-    path('albums/', include('albums.urls'))
+    re_path(r'^', include('labels.urls')),
+    re_path(r'^', include('artists.urls')),
+    re_path(r'^', include('albums.urls'))
 ]
