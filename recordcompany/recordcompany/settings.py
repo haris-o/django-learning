@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'labels',
     'artists',
-    'albums'
+    'albums',
+    'rest_framework_swagger'
 ]
 
 MIDDLEWARE = [

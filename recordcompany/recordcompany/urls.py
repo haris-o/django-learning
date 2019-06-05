@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path, include
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Record Company API')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^', include('labels.urls')),
     re_path(r'^', include('artists.urls')),
-    re_path(r'^', include('albums.urls'))
+    re_path(r'^', include('albums.urls')),
+    path(r'swagger-docs/', schema_view)
 ]
